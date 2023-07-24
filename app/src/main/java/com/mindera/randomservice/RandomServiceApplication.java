@@ -9,5 +9,4 @@ public class RandomServiceApplication {
   public static void main(String[] args) {
     SpringApplication.run(RandomServiceApplication.class, args);
   }
-
 }
