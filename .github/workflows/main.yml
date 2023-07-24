@@ -69,7 +69,6 @@ jobs:
           path: target/site/
 
   upload-dependency-graph:
-    if: github.ref == 'refs/heads/main'
     needs: dependency-download
     runs-on: ubuntu-latest
     steps:
