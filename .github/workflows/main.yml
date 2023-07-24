@@ -69,6 +69,7 @@ jobs:
           path: target/site/
 
   upload-dependency-graph:
+    if: github.ref == 'refs/heads/main'
     needs: dependency-download
     runs-on: ubuntu-latest
     permissions: write-all
@@ -85,6 +86,7 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@v3.0.2
 
   create-and-push-docker-img:
+    if: github.ref == 'refs/heads/main'
     needs: [build-and-test, checkstyle, upload-dependency-graph]
     runs-on: ubuntu-latest
     permissions: write-all
