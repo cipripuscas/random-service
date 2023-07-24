@@ -85,7 +85,6 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@v3.0.2
 
   create-and-push-docker-img:
-    if: github.ref == 'refs/heads/main'
     needs: [build-and-test, checkstyle, upload-dependency-graph]
     runs-on: ubuntu-latest
     steps:
@@ -114,7 +113,7 @@ jobs:
       - uses: int128/kaniko-action@v1.6.0
         with:
           push: true
-          tags: ghcr.io/pedrosilvamindera/random-service:main-${{github.run_number}}
+          tags: ghcr.io/cipripuscas/random-service:main-${{github.run_number}}
           labels: ${{ steps.metadata.outputs.labels }}
           cache: true
           cache-repository: ghcr.io/${{ github.repository }}/cache
