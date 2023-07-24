@@ -87,6 +87,7 @@ jobs:
   create-and-push-docker-img:
     needs: [build-and-test, checkstyle, upload-dependency-graph]
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
